@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+
+  <script src="script.js"></script>
+  <title>MeetingManager</title>
+</head>
+
+<body>
+
+  <div id="navigation-bar">
+    <a class="nav-item" href="#join-queue">JOIN QUEUE</a>
+    <a class="nav-item" href="#check-queue">CHECK QUEUE</a>
+    <a class="nav-item" href="#queue-control">QUEUE CONTROL</a>
+    <a class="nav-item" href="#about">ABOUT</a>
+    <a class="nav-item" href="#contact">CONTACT</a>
+  </div>
+
+  <div id="main-title">
+    <h1 id="title">MeetingManager</h1>
+    <h3 id="description">A tool for managing meeting queues.</h3>
+  </div>
+
+
+
+  <section id="join-queue">
+    <h1 class="section-title">Fill out to Join the Queue!</h1>
+    <form>
+      <input class="input-box" type="text" id="user-fullname" placeholder="Full Name" /> <br>
+      <input class="input-box" type="text" id="user-email" placeholder="Email" /> <br>
+      <input class="input-box" type="text" id="user-comment" placeholder="Comments" /> <br>
+      <button type="button" id="submit-button">Join Queue</button>
+    </form>
+  </section>
+
+  <section id="check-queue">
+    <h1>Queue Status</h1>
+    <button type="button" id="queue-update">UPDATE QUEUE</button>
+    <table id="queue">
+      <thead>
+        <tr>
+          <th>Queue Position</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Comment</th>
+          <th>Time Waited</th>
+        </tr>
+      </thead>
+    </table>
+
+  </section>
+
+  <section id="queue-control">
+    <h1>Queue Control</h1>
+    <input type="password" id="queue-pin" placeholder="Meeting Control PIN" />
+    <button type="button" id="queue-pin-submit">Authorize</button> <br>
+    <button type="button" id="queue-clear" disabled>CLEAR QUEUE</button>
+    <button type="button" id="queue-remove" disabled>DEQUEUE</button>
+  </section>
+
+  <section id="about-section">
+    <h1>About</h1>
+    <p id="about">
+      Managing who's next during your online meetings has never been easier. Point your users to this link and they'll
+      be able to join the queue.
+      As a host you can control the queue by both dequeuing and clearing the queue. Your users will be able to see the
+      queue status and their queue position.
+      They will also be able to see how many people are waiting in the queue and how long they have been waiting for.
+    </p>
+  </section>
+
+  <section id="contact-section">
+    <h1>Contact</h1>
+    <p id="contact">
+      If you have any questions or concerns, please contact us through <a
+        href="mailto:support@meetingmanager.com">email</a> or call us directly at 1-800-MANAGER.
+    </p>
+  </section>
+
+</body>
+
+</html>
