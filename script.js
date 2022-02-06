@@ -49,7 +49,6 @@ function submitInfo() {
 
 var myParticipants = [];
 
-
 class Participant {
   constructor(fullName, email, comment) {
     this.fullName = fullName;
@@ -80,14 +79,32 @@ function checkControlPin() {
 
 }
 
-
+var totalWaitTime = new Date(0);
+var deqCount = 0.00;
 function clearQueue() {
+  var lastWaitTime = document.getElementById("last-wait-time");
+  var averageWaitTime = document.getElementById("average-wait-time");
+  lastWaitTime.innerHTML = "Last Wait Time: ";
+  averageWaitTime.innerHTML = "Average Wait Time: ";
+  totalWaitTime = new Date(0);
+  deqCount = 0;
   myParticipants = [];
   displayQueue();
 }
 
 
 function dequeue() {
+  var lastWaitTime = document.getElementById("last-wait-time");
+  var averageWaitTime = document.getElementById("average-wait-time");
+  var thisTimeMilli = new Date().getTime() - myParticipants[0].time;
+  var thisTime = Number(((thisTimeMilli) / (1000 * 60))).toFixed(2);
+  totalWaitTime.setTime(totalWaitTime.getTime() + thisTimeMilli);
+  deqCount = deqCount + 1.00;
+  var avgTime = Number((totalWaitTime.getTime() / deqCount) / (1000 * 60)).toFixed(2);
+  
+  
+  lastWaitTime.innerHTML = "Last Wait Time: " + thisTime + " minutes";
+  averageWaitTime.innerHTML = "Average Wait Time: " + avgTime + " minutes";
   myParticipants.shift();
   displayQueue();
 }
